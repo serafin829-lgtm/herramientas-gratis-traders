@@ -2,6 +2,8 @@ index.html
 calculadora.html
 sobre.html
 aviso.html
+privacidad.html
+terminos.html
 categoria/graficos.html
 categoria/mercado.html
 categoria/onchain.html
