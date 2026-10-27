@@ -1,0 +1,24 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de tamaño de posición · Herramientas Libres para Traders</title><meta name="description" content="Directorio de herramientas gratuitas para traders de MEXC y cripto.">
+<link rel="stylesheet" href="estilo.css"></head><body>
+<header><div class="w"><a class="logo" href="index.html">Herramientas Libres para Traders</a><nav><a href="index.html">Inicio</a><a href="calculadora.html">Calculadora</a><a href="sobre.html">Sobre</a><a href="aviso.html">Aviso</a></nav></div></header>
+<main class="w"><div class="aviso"><strong>No es asesoramiento financiero.</strong> Directorio informativo. Operar con cripto, y más con apalancamiento, puede hacerte perder todo el capital. <a href="aviso.html">Leer aviso</a>.</div>
+<h1>Calculadora de tamaño de posición</h1>
+<p>Calcula cuánto puedes poner en una operación para que, si salta el stop, pierdas solo el porcentaje de capital que elijas. Todo se calcula en tu navegador; no se envía ningún dato.</p>
+<div class="calc"><label>Capital (USDT)<input type="number" id="cap" min="0" step="any" value="1000"></label>
+<label>Riesgo por operación (%)<input type="number" id="rie" min="0" step="any" value="1"></label>
+<label>Distancia del stop (%)<input type="number" id="sto" min="0" step="any" value="3"></label>
+<label>Apalancamiento (opcional, x)<input type="number" id="apa" min="1" step="any" value="1"></label></div>
+<div class="res" id="res" aria-live="polite"></div>
+<p class="meta">Fórmula: tamaño = capital × riesgo% ÷ stop%. Margen necesario = tamaño ÷ apalancamiento. No incluye comisiones ni deslizamiento: con ellos la pérdida real al saltar el stop será algo mayor.</p>
+<script>
+(function(){function n(id){var v=parseFloat(document.getElementById(id).value);return isFinite(v)?v:NaN}
+function f(x){return x.toLocaleString('es-ES',{maximumFractionDigits:2})}
+function calc(){var c=n('cap'),r=n('rie'),s=n('sto'),a=n('apa')||1,o=document.getElementById('res');
+if(!(c>0&&r>0&&s>0&&a>=1)){o.textContent='Introduce capital, riesgo y stop mayores que cero (apalancamiento ≥ 1).';return}
+var riesgo=c*r/100,tam=riesgo/(s/100),mar=tam/a,aviso='';
+if(mar>c)aviso='<br><strong>Atención:</strong> el margen necesario supera tu capital; reduce el riesgo o amplía el stop.';
+if(r>2)aviso+='<br><strong>Atención:</strong> arriesgar más del 2 % por operación aumenta mucho la probabilidad de ruina.';
+o.innerHTML='Pérdida máxima si salta el stop: <strong>'+f(riesgo)+' USDT</strong><br>Tamaño de la posición: <strong>'+f(tam)+' USDT</strong> ('+f(tam/c*100)+' % del capital)<br>Margen necesario con '+f(a)+'x: <strong>'+f(mar)+' USDT</strong>'+aviso}
+['cap','rie','sto','apa'].forEach(function(i){document.getElementById(i).addEventListener('input',calc)});calc()})();
+</script></main><footer><div class="w">Sin enlaces de afiliado ni publicidad. Enlaces verificados a diario. Última generación: 27/10/2026 01:48 (hora de Madrid).</div></footer></body></html>
