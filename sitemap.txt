@@ -166,3 +166,11 @@ herramienta/cointester.html
 herramienta/frostbyte.html
 herramienta/tessera.html
 herramienta/atlasyield.html
+herramienta/pluralsight-course.html
+herramienta/ropsten-ethereum-faucet.html
+herramienta/portis.html
+herramienta/blockchannel.html
+herramienta/coinbeacon.html
+herramienta/backtesting-arena.html
+herramienta/kelp.html
+herramienta/catalyst.html
