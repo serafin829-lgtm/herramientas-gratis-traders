@@ -28,17 +28,17 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:show-capi-desayuno@serafin829-lgtm.github.io
-DTSTAMP:20261101T083258Z
+DTSTAMP:20261104T163333Z
 DTSTART;TZID=Europe/Madrid:20261028T074500
 DURATION:PT20M
 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
 SUMMARY:🐹 Desayuno con El Show de Capi
-DESCRIPTION:Último episodio: Episodio 2: Jirafa\nhttps://www.youtube.com/
- watch?v=cSO8ilgAYAQ\n\nTodos los episodios: https://www.youtube.com/playl
- ist?list=PLF7jlBhu0JaY\nCanal: https://www.youtube.com/@CantaConCapi\n\nR
- ecordatorio para familias. Te apuntaste tú\; para dejarlo\, borra este c
- alendario. No recogemos ningún dato.
-URL:https://www.youtube.com/watch?v=cSO8ilgAYAQ
+DESCRIPTION:Último episodio: Episodio 3: Elefante\nhttps://www.youtube.co
+ m/watch?v=7l-yBjydcPc\n\nTodos los episodios: https://www.youtube.com/pla
+ ylist?list=PLF7jlBhu0JaY\nCanal: https://www.youtube.com/@CantaConCapi\n\
+ nRecordatorio para familias. Te apuntaste tú\; para dejarlo\, borra este
+  calendario. No recogemos ningún dato.
+URL:https://www.youtube.com/watch?v=7l-yBjydcPc
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -48,17 +48,17 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:show-capi-merienda@serafin829-lgtm.github.io
-DTSTAMP:20261101T083258Z
+DTSTAMP:20261104T163333Z
 DTSTART;TZID=Europe/Madrid:20261027T173000
 DURATION:PT20M
 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
 SUMMARY:🐹 Merienda con El Show de Capi
-DESCRIPTION:Último episodio: Episodio 2: Jirafa\nhttps://www.youtube.com/
- watch?v=cSO8ilgAYAQ\n\nTodos los episodios: https://www.youtube.com/playl
- ist?list=PLF7jlBhu0JaY\nCanal: https://www.youtube.com/@CantaConCapi\n\nR
- ecordatorio para familias. Te apuntaste tú\; para dejarlo\, borra este c
- alendario. No recogemos ningún dato.
-URL:https://www.youtube.com/watch?v=cSO8ilgAYAQ
+DESCRIPTION:Último episodio: Episodio 3: Elefante\nhttps://www.youtube.co
+ m/watch?v=7l-yBjydcPc\n\nTodos los episodios: https://www.youtube.com/pla
+ ylist?list=PLF7jlBhu0JaY\nCanal: https://www.youtube.com/@CantaConCapi\n\
+ nRecordatorio para familias. Te apuntaste tú\; para dejarlo\, borra este
+  calendario. No recogemos ningún dato.
+URL:https://www.youtube.com/watch?v=7l-yBjydcPc
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
