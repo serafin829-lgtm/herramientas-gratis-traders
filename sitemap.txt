@@ -174,3 +174,8 @@ herramienta/coinbeacon.html
 herramienta/backtesting-arena.html
 herramienta/kelp.html
 herramienta/catalyst.html
+herramienta/bitcoin-magazine.html
+herramienta/coingape.html
+herramienta/coin-spectator.html
+herramienta/coindar.html
+herramienta/rektradar-io.html
