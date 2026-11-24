@@ -179,4 +179,3 @@ herramienta/coingape.html
 herramienta/coin-spectator.html
 herramienta/coindar.html
 herramienta/rektradar-io.html
-herramienta/ddex.html
