@@ -1,0 +1,33 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de ahorro solar</title><meta name="description" content="Estima el ahorro a partir del consumo, el precio del kWh y las horas equivalentes que introduces tú."><meta name="robots" content="index,follow">
+<style>*{box-sizing:border-box}body{margin:0;font:16px/1.6 system-ui,sans-serif;background:#f7f8fa;color:#1c2330}
+header,footer{background:#0d2b40;color:#fff;padding:1rem 1.2rem}a{color:#0b6b5d}header a,footer a{color:#9cc3ff}
+main{max-width:900px;margin:auto;padding:1.2rem}.aviso{background:#fff6e0;border:1px solid #e8d39a;padding:.8rem 1rem;border-radius:10px}
+label{display:block;margin:.4rem 0}.calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;background:#fff;border:1px solid #e3e7ee;border-radius:12px;padding:1rem}
+input,select{width:100%;padding:.5rem;border:1px solid #c5cdd6;border-radius:8px}
+.res{margin-top:1rem;background:#fff;border:1px solid #e3e7ee;border-radius:12px;padding:1rem}
+.fuente{font-size:.85rem;color:#5b6575}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid #e3e7ee;padding:.4rem .5rem;text-align:left}
+</style></head><body>
+<header><strong>Calculadora de ahorro solar</strong></header>
+<main><div class="aviso">Información educativa. No es asesoramiento fiscal, energético, financiero ni una recomendación. Sin anuncios y sin enlaces de afiliado.</div>
+<h1>Calculadora de ahorro solar (orientativa)</h1>
+<p>Estima un ahorro anual a partir de datos que <strong>tú introduces</strong> (consumo, precio del kWh, horas equivalentes y potencia). No usa tarifas oficiales ni subvenciones no verificadas. El resultado es una cuenta aritmética, no un estudio técnico.</p>
+<div class="calc">
+<label>Consumo anual (kWh)<input id="cons" type="number" min="0" value="3000"></label>
+<label>Precio que pagas (€/kWh)<input id="pre" type="number" min="0" step="0.001" value="0.15"></label>
+<label>Potencia instalada (kW)<input id="pot" type="number" min="0" step="0.1" value="3"></label>
+<label>Horas equivalentes al año<input id="hor" type="number" min="0" value="1400"></label>
+<label>Autoconsumo estimado (%)<input id="auto" type="number" min="0" max="100" value="70"></label>
+</div>
+<div class="res" id="res"></div>
+<script>
+function c(){var cons=+document.getElementById('cons').value,pre=+document.getElementById('pre').value,pot=+document.getElementById('pot').value,hor=+document.getElementById('hor').value,au=+document.getElementById('auto').value,o=document.getElementById('res');
+if(!(cons>=0&&pre>=0&&pot>=0&&hor>=0&&au>=0)){o.textContent='Introduce valores válidos.';return}
+var prod=pot*hor,usado=Math.min(cons,prod*(au/100)),ahorro=usado*pre,f=function(x){return x.toLocaleString('es-ES',{maximumFractionDigits:0})};
+o.innerHTML='Producción estimada: <strong>'+f(prod)+' kWh/año</strong><br>Energía autoconsumida (según tu %): <strong>'+f(usado)+' kWh</strong><br>Ahorro orientativo: <strong>'+ahorro.toLocaleString('es-ES',{maximumFractionDigits:2})+' €</strong>. No incluye impuestos, baterías ni ayudas.';}
+['cons','pre','pot','hor','auto'].forEach(function(i){document.getElementById(i).addEventListener('input',c)});c();
+</script>
+<p class="fuente">Las horas equivalentes dependen de tu tejado y tu zona. Para una cifra real hace falta un instalador y, si hay ayudas, la convocatoria oficial vigente.</p>
+</main>
+<footer>Página estática, sin cookies de seguimiento. Preparada el 24/11/2026 13:56 (hora de Madrid, Europe/Madrid). Lista para GitHub Pages o Cloudflare Pages tras una decisión de publicación. No se ha creado ninguna cuenta nueva.</footer>
+</body></html>

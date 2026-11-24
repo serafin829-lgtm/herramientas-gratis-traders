@@ -1,0 +1,50 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de riesgo y beneficio · Herramientas Libres para Traders</title>
+<meta name="description" content="Calcula tamaño de posición, pérdida si salta el stop y ganancia si se alcanza el objetivo. Todo en el navegador.">
+<meta name="robots" content="index,follow">
+<style>:root{--bg:#f7f8fa;--fg:#1c2330;--mut:#5b6575;--pri:#0b6b5d;--card:#fff;--bd:#e3e7ee;--warn:#8a5a00;--warnbg:#fff6e0}
+@media (prefers-color-scheme:dark){:root{--bg:#0f141b;--fg:#e6eaf0;--mut:#9aa6b8;--pri:#3cc4ae;--card:#161d27;--bd:#263142;--warn:#ffd27a;--warnbg:#2a2312}}
+*{box-sizing:border-box}body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--fg)}
+a{color:var(--pri)}header,footer{background:var(--card);border-bottom:1px solid var(--bd)}footer{border-top:1px solid var(--bd);border-bottom:0;margin-top:3rem;color:var(--mut);font-size:.9rem}
+.w{max-width:1100px;margin:0 auto;padding:1rem 1.2rem}header .w{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;align-items:center}
+.logo{font-weight:700;font-size:1.15rem;text-decoration:none;color:var(--fg)}nav a{margin-right:1rem;text-decoration:none;font-weight:500}
+.aviso{background:var(--warnbg);color:var(--warn);border:1px solid var(--bd);border-radius:10px;padding:.7rem 1rem;font-size:.92rem;margin:1rem 0}
+.calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:1.2rem}
+.res{font-size:1.1rem;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:1rem 1.2rem;margin-top:1rem}
+table{width:100%;border-collapse:collapse;background:var(--card)}th,td{padding:.55rem .7rem;border-bottom:1px solid var(--bd);text-align:right}th:first-child,td:first-child{text-align:left}
+input[type=number]{width:100%;padding:.6rem .8rem;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--fg);font-size:1rem}
+.fuente{font-size:.85rem;color:var(--mut)}ul{padding-left:1.2rem}
+</style></head><body>
+<header><div class="w"><a class="logo" href="index.html">Herramientas Libres para Traders</a>
+<nav><a href="index.html">Inicio</a>
+<a href="calculadora.html">Calculadora</a>
+<a href="calculadora-riesgo-beneficio.html">Riesgo/beneficio</a>
+<a href="comparativa-comisiones-oficiales.html">Comisiones</a>
+<a href="guia-antiestafas.html">Antiestafas</a>
+<a href="sobre.html">Sobre</a></nav></div></header>
+<main class="w"><div class="aviso"><strong>No es asesoramiento financiero.</strong> Información educativa. Operar con cripto puede hacerte perder todo el capital. Sin afiliados y sin publicidad.</div>
+<h1>Calculadora de riesgo y beneficio</h1>
+<p>Calcula el tamaño de la posición, la pérdida si salta el stop y la ganancia si se alcanza el objetivo. Todo se calcula en tu navegador; no se envía ningún dato.</p>
+<div class="calc">
+<label>Capital<input type="number" id="cap" min="0" step="any" value="1000"></label>
+<label>Riesgo por operación (%)<input type="number" id="rie" min="0" step="any" value="1"></label>
+<label>Distancia del stop (%)<input type="number" id="sto" min="0" step="any" value="3"></label>
+<label>Distancia del objetivo (%)<input type="number" id="obj" min="0" step="any" value="6"></label>
+<label>Apalancamiento (x)<input type="number" id="apa" min="1" step="any" value="1"></label>
+</div>
+<div class="res" id="res" aria-live="polite"></div>
+<p class="fuente">Fórmulas: pérdida = capital × riesgo%; tamaño = pérdida ÷ stop%; ganancia estimada si se alcanza el objetivo = tamaño × objetivo%. No incluye comisiones ni deslizamiento. Hay una calculadora más simple en <a href="calculadora.html">calculadora de tamaño de posición</a>.</p>
+<script>
+(function(){function n(id){var v=parseFloat(document.getElementById(id).value);return isFinite(v)?v:NaN}
+function f(x){return x.toLocaleString('es-ES',{maximumFractionDigits:2})}
+function calc(){var c=n('cap'),r=n('rie'),s=n('sto'),o=n('obj'),a=n('apa')||1,el=document.getElementById('res');
+if(!(c>0&&r>0&&s>0&&o>=0&&a>=1)){el.textContent='Introduce capital, riesgo y stop mayores que cero.';return}
+var per=c*r/100,tam=per/(s/100),gan=tam*(o/100),rr=o/s,mar=tam/a,aviso='';
+if(mar>c)aviso+='<br><strong>Atención:</strong> el margen supera el capital.';
+if(r>2)aviso+='<br><strong>Atención:</strong> arriesgar más del 2 % por operación aumenta la probabilidad de ruina.';
+el.innerHTML='Pérdida si salta el stop: <strong>'+f(per)+'</strong><br>Tamaño: <strong>'+f(tam)+'</strong><br>Margen a '+f(a)+'x: <strong>'+f(mar)+'</strong><br>Ganancia si se alcanza el objetivo (sin comisiones): <strong>'+f(gan)+'</strong><br>Relación riesgo/beneficio: <strong>1 : '+f(rr)+'</strong>'+aviso}
+['cap','rie','sto','obj','apa'].forEach(function(i){document.getElementById(i).addEventListener('input',calc)});calc()})();
+</script>
+</main>
+<footer><div class="w">Sin enlaces de afiliado ni anuncios. Páginas preparadas el 24/11/2026 13:56 (hora de Madrid, Europe/Madrid). <a href="privacidad.html">Privacidad</a></div></footer>
+</body></html>

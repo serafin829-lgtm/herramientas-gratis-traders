@@ -1,0 +1,35 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de cuota de autónomos y Tarifa Cero</title><meta name="description" content="Explica el sistema de cotización y enlaza el simulador oficial de la Seguridad Social. Sin cifras no verificadas."><meta name="robots" content="index,follow">
+<style>*{box-sizing:border-box}body{margin:0;font:16px/1.6 system-ui,sans-serif;background:#f7f8fa;color:#1c2330}
+header,footer{background:#0d2b40;color:#fff;padding:1rem 1.2rem}a{color:#0b6b5d}header a,footer a{color:#9cc3ff}
+main{max-width:900px;margin:auto;padding:1.2rem}.aviso{background:#fff6e0;border:1px solid #e8d39a;padding:.8rem 1rem;border-radius:10px}
+label{display:block;margin:.4rem 0}.calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;background:#fff;border:1px solid #e3e7ee;border-radius:12px;padding:1rem}
+input,select{width:100%;padding:.5rem;border:1px solid #c5cdd6;border-radius:8px}
+.res{margin-top:1rem;background:#fff;border:1px solid #e3e7ee;border-radius:12px;padding:1rem}
+.fuente{font-size:.85rem;color:#5b6575}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid #e3e7ee;padding:.4rem .5rem;text-align:left}
+</style></head><body>
+<header><strong>Calculadora de cuota de autónomos y Tarifa Cero</strong></header>
+<main><div class="aviso">Información educativa. No es asesoramiento fiscal, energético, financiero ni una recomendación. Sin anuncios y sin enlaces de afiliado.</div>
+<h1>Cuota de autónomos y Tarifa Cero</h1>
+<p>En España, desde el Real Decreto-ley 13/2022, la cuota de autónomos se calcula según los <strong>rendimientos netos</strong>. La Tesorería ofrece un <a href="https://portal.seg-social.gob.es/wps/portal/importass/importass/tramites/simuladorRETAPublico" rel="noopener noreferrer nofollow" target="_blank">simulador oficial de cuota 2026</a> (Importass / Seguridad Social), consultado el 24/11/2026. Esta página <strong>no copia la tabla de tramos</strong> porque el simulador no expuso las cifras en la consulta automática; usa el simulador oficial para el número exacto.</p>
+<h2>Tarifa plana estatal (lo que sí está en la web de la Seguridad Social)</h2>
+<p>La página de herramientas de la Seguridad Social describe una <strong>cuota reducida («tarifa plana») de 80 € al mes durante los primeros 12 meses</strong> para altas iniciales en el periodo <strong>2023-2025</strong>, con requisitos (no haber estado de alta en los 2 años anteriores, o 3 si ya se disfrutó). Puede haber prórroga si los rendimientos previstos son inferiores al SMI. Fuente: <a href="https://www.seg-social.es/wps/portal/wss/internet/HerramientasWeb/9d2fd4f1-ab0f-42a6-8d10-2e74b378ee24/?changeLanguage=es" rel="noopener noreferrer nofollow" target="_blank">seg-social.es, herramientas de cotización</a>, leída el 24/11/2026. <strong>No afirmamos aquí que esa cifra de 80 € siga igual en 2026</strong>: contrástalo en Importass o en tu gestoría.</p>
+<h2>Qué es la «Tarifa Cero»</h2>
+<p>No es una exención de la Seguridad Social. Suele ser una <strong>ayuda autonómica</strong> que, si la convocan, te puede devolver (en todo o en parte) lo pagado de cuota. Cada comunidad tiene sus bases y plazos. No se listan importes aquí porque cambian y no se han verificado uno a uno en boletines oficiales en esta pasada. Consulta la sede de tu comunidad y <a href="https://www.infosubvenciones.es" rel="noopener noreferrer nofollow" target="_blank">BDNS / infosubvenciones.es</a>.</p>
+<h2>Calculadora orientativa (tú pones la base y el tipo)</h2>
+<p>Introduce la base de cotización y el tipo de cotización que te dé el simulador oficial. Aquí solo se multiplica.</p>
+<div class="calc">
+<label>Base mensual (€)<input id="base" type="number" min="0" step="any" value="0"></label>
+<label>Tipo de cotización (%)<input id="tipo" type="number" min="0" step="any" value="0"></label>
+</div>
+<div class="res" id="res">Pon la base y el tipo que hayas leído en el simulador oficial.</div>
+<script>
+function c(){var b=parseFloat(document.getElementById('base').value),t=parseFloat(document.getElementById('tipo').value),o=document.getElementById('res');
+if(!(b>0&&t>0)){o.textContent='Pon la base y el tipo que hayas leído en el simulador oficial.';return}
+o.innerHTML='Cuota mensual orientativa: <strong>'+(b*t/100).toLocaleString('es-ES',{maximumFractionDigits:2})+' €</strong> (solo base × tipo; no aplica bonificaciones).';}
+document.getElementById('base').oninput=document.getElementById('tipo').oninput=c;
+</script>
+<p class="fuente">Fuentes oficiales citadas el 24/11/2026. Esta web no gestiona altas ni presenta solicitudes.</p>
+</main>
+<footer>Página estática, sin cookies de seguimiento. Preparada el 24/11/2026 13:56 (hora de Madrid, Europe/Madrid). Lista para GitHub Pages o Cloudflare Pages tras una decisión de publicación. No se ha creado ninguna cuenta nueva.</footer>
+</body></html>

@@ -1,0 +1,33 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de tamaño de posición</title><meta name="description" content="Calcula el tamaño de una posición según capital, riesgo y stop, en el navegador."><meta name="robots" content="index,follow">
+<style>*{box-sizing:border-box}body{margin:0;font:16px/1.6 system-ui,sans-serif;background:#f7f8fa;color:#1c2330}
+header,footer{background:#0d2b40;color:#fff;padding:1rem 1.2rem}a{color:#0b6b5d}header a,footer a{color:#9cc3ff}
+main{max-width:900px;margin:auto;padding:1.2rem}.aviso{background:#fff6e0;border:1px solid #e8d39a;padding:.8rem 1rem;border-radius:10px}
+label{display:block;margin:.4rem 0}.calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;background:#fff;border:1px solid #e3e7ee;border-radius:12px;padding:1rem}
+input,select{width:100%;padding:.5rem;border:1px solid #c5cdd6;border-radius:8px}
+.res{margin-top:1rem;background:#fff;border:1px solid #e3e7ee;border-radius:12px;padding:1rem}
+.fuente{font-size:.85rem;color:#5b6575}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid #e3e7ee;padding:.4rem .5rem;text-align:left}
+</style></head><body>
+<header><strong>Calculadora de tamaño de posición</strong></header>
+<main><div class="aviso">Información educativa. No es asesoramiento fiscal, energético, financiero ni una recomendación. Sin anuncios y sin enlaces de afiliado.</div>
+<h1>Calculadora de tamaño de posición y riesgo</h1>
+<p>Todo se calcula en tu navegador. No se envía ningún dato. No es una recomendación de inversión.</p>
+<div class="calc">
+<label>Capital<input id="cap" type="number" min="0" value="1000"></label>
+<label>Riesgo por operación (%)<input id="rie" type="number" min="0" value="1"></label>
+<label>Distancia del stop (%)<input id="sto" type="number" min="0" value="3"></label>
+<label>Apalancamiento (x)<input id="apa" type="number" min="1" value="1"></label>
+</div>
+<div class="res" id="res"></div>
+<script>
+function n(id){var v=parseFloat(document.getElementById(id).value);return isFinite(v)?v:NaN}
+function f(x){return x.toLocaleString('es-ES',{maximumFractionDigits:2})}
+function c(){var cap=n('cap'),r=n('rie'),s=n('sto'),a=n('apa')||1,o=document.getElementById('res');
+if(!(cap>0&&r>0&&s>0&&a>=1)){o.textContent='Introduce valores mayores que cero.';return}
+var per=cap*r/100,tam=per/(s/100),mar=tam/a;
+o.innerHTML='Pérdida si salta el stop: <strong>'+f(per)+'</strong><br>Tamaño: <strong>'+f(tam)+'</strong><br>Margen a '+f(a)+'x: <strong>'+f(mar)+'</strong>'+(mar>cap?'<br>El margen supera el capital.':'');}
+['cap','rie','sto','apa'].forEach(function(i){document.getElementById(i).addEventListener('input',c)});c();
+</script>
+</main>
+<footer>Página estática, sin cookies de seguimiento. Preparada el 24/11/2026 13:56 (hora de Madrid, Europe/Madrid). Lista para GitHub Pages o Cloudflare Pages tras una decisión de publicación. No se ha creado ninguna cuenta nueva.</footer>
+</body></html>

@@ -179,3 +179,12 @@ herramienta/coingape.html
 herramienta/coin-spectator.html
 herramienta/coindar.html
 herramienta/rektradar-io.html
+guia-antiestafas.html
+calculadora-riesgo-beneficio.html
+guias.html
+comparativa-comisiones-oficiales.html
+show-capi/index.html
+seo/tamano-posicion/index.html
+seo/ahorro-solar/index.html
+seo/cuota-autonomos-tarifa-cero/index.html
+seo/comparador-herramientas-gremios/index.html
